@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Win FREE Airtime or Data | Weekly Giveaway</title>
+<style>
+:root{--bg:#0b0f0c;--card:#141b16;--g:#22c55e;--o:#ff8a1f;--t:#e9f5ec;--m:#8aa294;--line:#22302a}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--t);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-text-size-adjust:100%}
+.w{max-width:480px;margin:0 auto;padding:0 16px 40px}
+header{padding:14px 0;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.brand{color:var(--g)}
+.hero{text-align:center;padding:14px 0 24px}
+h1{font-size:clamp(28px,8vw,40px);line-height:1.08;margin:8px 0 10px;font-weight:900}
+h2{font-size:22px;margin:6px 0 4px}
+.flags{font-size:30px;letter-spacing:4px;margin:10px 0}
+.sub{color:var(--m);margin:0 0 16px}
+.btn{display:block;width:100%;border:0;border-radius:14px;padding:16px;font-size:18px;font-weight:800;background:linear-gradient(90deg,var(--g),#16a34a);color:#04120a;cursor:pointer;text-decoration:none;text-align:center;margin-top:8px}
+.btn.o{background:linear-gradient(90deg,var(--o),#f97316);color:#1a0d00}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.prizes{display:grid;gap:12px;margin:14px 0 6px}
+.prize{display:flex;align-items:center;gap:12px;padding:12px;border-radius:12px;border:1px solid var(--line);background:#0f1511;position:relative}
+.prize .ic{font-size:26px}
+.prize.hot{border:2px solid var(--o);background:#20160b}
+.badge{position:absolute;top:-10px;right:10px;background:var(--o);color:#1a0d00;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px}
+.ticker{overflow:hidden;white-space:nowrap;background:#0f1511;border:1px solid var(--line);border-radius:12px;padding:10px 0;margin-top:14px;font-size:14px}
+.tk{display:inline-block;padding-left:100%;animation:mq 24s linear infinite}
+.tk span{margin:0 22px;color:var(--m)}
+.tk b{color:var(--g)}
+@keyframes mq{to{transform:translateX(-100%)}}
+.ct{font-size:11px;color:var(--m);text-align:center;margin:4px 0}
+.step{display:none}
+.step.on{display:block}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ctry{background:var(--card);border:1px solid var(--line);color:var(--t);border-radius:14px;padding:18px 8px;font-size:16px;font-weight:700;cursor:pointer;text-align:center;font-family:inherit}
+.ctry i{display:block;font-style:normal;font-size:34px}
+.ctry:hover,.ctry:focus,.ctry.sel{border-color:var(--g);outline:none}
+.ctry.sel{background:#102218}
+label{display:block;font-size:14px;color:var(--m);margin:14px 0 6px}
+input,select{width:100%;padding:14px;border-radius:12px;border:1px solid var(--line);background:#0c110e;color:var(--t);font-size:16px;font-family:inherit}
+input:focus,select:focus{outline:2px solid var(--g);border-color:transparent}
+.hint{font-size:12px;color:var(--m);margin-top:4px}
+.err{color:#ff6b6b;font-size:14px;min-height:20px;margin:10px 0 0}
+.ok{color:var(--g);text-align:center;min-height:24px;font-weight:700}
+.chk{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--m);margin-top:14px}
+.chk input{width:auto;margin-top:3px}
+.back{background:none;border:0;color:var(--m);padding:8px 0;cursor:pointer;font-size:14px;font-family:inherit}
+.wrap{position:relative;width:280px;height:280px;margin:22px auto 10px}
+.ptr{position:absolute;top:-8px;left:50%;margin-left:-12px;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:28px solid var(--o);z-index:3}
+.wheel{width:100%;height:100%;border-radius:50%;border:6px solid var(--o);box-sizing:border-box;position:relative;transition:transform 4.5s cubic-bezier(.17,.67,.12,.99);overflow:hidden}
+.lb{position:absolute;left:50%;top:50%;width:50%;height:0;transform-origin:0 0}
+.lb span{position:absolute;left:14px;top:-9px;white-space:nowrap;font-size:12px;font-weight:800;color:#fff;text-shadow:0 1px 2px #000}
+.lb.g span{color:#1a0d00;text-shadow:none}
+.hub{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--bg);border:4px solid var(--o);z-index:2}
+</style>
+</head>
+<body>
+<script>
+/* ==================== CONFIG: edit these ==================== */
+const CFG = {
+  // Offer / affiliate landing URL. Shown as "continue" after the wheel spin. Leave '' to hide.
+  OFFER_URL: '',
+  // Affiliate postback URL. Lead fields are appended as query params (phone, name, country, network, email, cid, focus, ts).
+  // Example: 'https://tracker.example.com/postback?campaign=ng-giveaway'  Leave '' to disable.
+  POSTBACK_URL: '',
+  // Sponsor / brand name shown in header and footer.
+  SPONSOR_NAME: 'YourBrand',
+  // Terms & conditions and privacy policy URLs (footer and consent line).
+  TERMS_URL: '#terms',
+  PRIVACY_URL: '#privacy',
+  // Which prize is highlighted as the weekly top prize: 'rotate' (changes every ISO week) | 'airtime' | 'data' | 'giftcard'
+  WEEKLY_PRIZE: 'rotate',
+  // Bonus wheel cooldown in hours (stored in localStorage).
+  SPIN_COOLDOWN_H: 24,
+  CAMPAIGN: 'airtime-data-giveaway'
+};
+
+/* ==================== COUNTRY DATA ====================
+   Prize amounts below are PLACEHOLDERS. Swap them for your real offer values.
+   ln = local number length, trunk = leading 0 used domestically.
+*/
+const C = {
+  NG:{name:'Nigeria',flag:'🇳🇬',dial:'234',trunk:1,ln:11,re:/^0\d{10}$/,ph:'08012345678',hint:'11 digits, starts with 0',nets:['MTN','Airtel','Glo','9mobile'],pr:{airtime:'₦5,000 airtime',data:'10GB data bundle',giftcard:'₦10,000 gift card'}},
+  GH:{name:'Ghana',flag:'🇬🇭',dial:'233',trunk:1,ln:10,re:/^0\d{9}$/,ph:'0241234567',hint:'10 digits, starts with 0',nets:['MTN','Telecel','AT'],pr:{airtime:'GH₵50 airtime',data:'10GB data bundle',giftcard:'GH₵100 gift card'}},
+  PK:{name:'Pakistan',flag:'🇵🇰',dial:'92',trunk:1,ln:11,re:/^03\d{9}$/,ph:'03001234567',hint:'11 digits, starts with 03',nets:['Jazz','Zong','Telenor','Ufone'],pr:{airtime:'Rs 1,000 load',data:'10GB data bundle',giftcard:'Rs 5,000 gift card'}},
+  BD:{name:'Bangladesh',flag:'🇧🇩',dial:'880',trunk:1,ln:11,re:/^01[3-9]\d{8}$/,ph:'01712345678',hint:'11 digits, starts with 01',nets:['Grameenphone','Robi','Banglalink','Teletalk'],pr:{airtime:'৳500 airtime',data:'10GB data bundle',giftcard:'৳2,000 gift card'}},
+  IN:{name:'India',flag:'🇮🇳',dial:'91',trunk:0,ln:10,re:/^[6-9]\d{9}$/,ph:'9876543210',hint:'10 digits, starts with 6 to 9',nets:['Jio','Airtel India','Vi','BSNL'],pr:{airtime:'₹200 recharge',data:'10GB data bundle',giftcard:'₹1,000 gift card'}}
+};
+const KEYS = ['airtime','data','giftcard'];
+const ICON = {airtime:'📱',data:'📶',giftcard:'🎁'};
+const HEAD = {airtime:'Win FREE Airtime or Data this week!',data:'Win FREE Data or Airtime this week!',giftcard:'Win a FREE Gift Card this week!'};
+
+/* ==================== SAMPLE WINNERS (PLACEHOLDER) ====================
+   Illustrative only. Replace with real, verified winners or remove the ticker.
+*/
+const WINNERS = [
+  ['Amaka','NG','₦5,000 airtime'],['Kwame','GH','10GB data'],['Sana','PK','Rs 5,000 gift card'],
+  ['Rahim','BD','৳500 airtime'],['Priya','IN','₹200 recharge'],['Tunde','NG','10GB data']
+];
+
+/* ==================== BONUS WHEEL ====================
+   7 equal wedges: 6 small + 1 rare grand prize. Grand prize odds are set by GRAND_ODDS.
+*/
+const SEGS = [
+  {l:'+50MB',c:'#15803d'},{l:'+100MB',c:'#0f766e'},{l:'Bonus airtime',c:'#ea580c'},
+  {l:'+200MB',c:'#166534'},{l:'Extra entry',c:'#c2410c'},{l:'+500MB',c:'#0e7490'},
+  {l:'GRAND PRIZE',c:'#facc15',grand:true}
+];
+const GRAND_ODDS = 0.01;
+
+const $ = id => document.getElementById(id);
+let country = null;
+
+/* the prize highlighted this week */
+function hotPrize(){
+  if(CFG.WEEKLY_PRIZE !== 'rotate') return CFG.WEEKLY_PRIZE;
+  const d = new Date(), s = new Date(d.getFullYear(),0,1);
+  const wk = Math.floor(((d - s)/864e5 + s.getDay() + 1)/7);
+  return KEYS[wk % 3];
+}
+
+function setStep(n){
+  ['s1','s2','s3'].forEach((id,i) => $(id).classList.toggle('on', i+1 === n));
+  $('s'+n).scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function pick(k){
+  country = k;
+  try{ localStorage.setItem('gw_cc', k); }catch(_){}
+  const c = C[k], hot = hotPrize();
+  document.querySelectorAll('.ctry').forEach(b => b.classList.toggle('sel', b.dataset.c === k));
+  $('cname').textContent = c.flag + ' ' + c.name;
+  $('h1').textContent = HEAD[hot];
+  $('prizes').innerHTML = KEYS.map(p => {
+    const h = p === hot;
+    return '<div class="prize'+(h?' hot':'')+'"><span class="ic">'+ICON[p]+'</span><div><b>'+c.pr[p]+'</b><div class="hint">'+(h?"this week's top prize":'also up for grabs')+'</div></div>'+(h?'<span class="badge">THIS WEEK</span>':'')+'</div>';
+  }).join('');
+  $('net').innerHTML = '<option value="">select network</option>' + c.nets.map(n => '<option>'+n+'</option>').join('');
+  $('phone').value = '';
+  $('phone').placeholder = c.ph;
+  $('phint').textContent = 'format: ' + c.hint + ' (e.g. ' + c.ph + ')';
+  $('err').textContent = '';
+  setStep(2);
+}
+
+/* strip +country code / spaces so 0-prefixed local format is checked */
+function normPhone(raw, c){
+  let d = String(raw || '').replace(/\D/g,'');
+  const L = c.trunk ? c.ln - 1 : c.ln;
+  if(d.length === c.dial.length + L && d.indexOf(c.dial) === 0)
+    d = (c.trunk ? '0' : '') + d.slice(c.dial.length);
+  return d;
+}
+
+/* ---------- lead send: hook + affiliate postback placeholder ---------- */
+function queueSave(u){
+  let q = []; try{ q = JSON.parse(localStorage.getItem('gw_q') || '[]'); }catch(_){}
+  q.push(u); try{ localStorage.setItem('gw_q', JSON.stringify(q.slice(-50))); }catch(_){}
+}
+function fire(u){
+  if(!navigator.onLine){ queueSave(u); return; }
+  // Affiliate postback: fires only when POSTBACK_URL is set.
+  fetch(u, {mode:'no-cors', keepalive:true}).catch(() => queueSave(u));
+}
+function flushQueue(){
+  let q = []; try{ q = JSON.parse(localStorage.getItem('gw_q') || '[]'); }catch(_){}
+  if(!q.length) return;
+  try{ localStorage.removeItem('gw_q'); }catch(_){}
+  q.forEach(fire);
+}
+window.addEventListener('online', flushQueue);
+
+function sendLead(lead){
+  // Hook for your own tracking / pixel / CRM. Fires on every valid submit.
+  try{ if(typeof window.__leadSubmit === 'function') window.__leadSubmit(lead); }catch(_){}
+  if(CFG.POSTBACK_URL){
+    const u = CFG.POSTBACK_URL + (CFG.POSTBACK_URL.indexOf('?') > -1 ? '&' : '?') + new URLSearchParams(lead).toString();
+    fire(u);
+    /* Equivalent explicit form:
+       fetch(u, {mode:'no-cors', keepalive:true});
+    */
+  }
+}
+
+/* ---------- form submit ---------- */
+function onSubmit(e){
+  e.preventDefault();
+  const err = $('err'); err.textContent = '';
+  const c = C[country];
+  if(!c){ err.textContent = 'pick your country first.'; setStep(1); return; }
+  // honeypot: bots fill hidden field, pretend success
+  if($('hp').value){ showConfirm(); return; }
+  const name = $('name').value.trim();
+  const email = $('email').value.trim();
+  const net = $('net').value;
+  const phone = normPhone($('phone').value, c);
+  if(!/^[\p{L}][\p{L} .'\-]{1,59}$/u.test(name)){ err.textContent = 'enter your full name (letters only).'; $('name').focus(); return; }
+  if(!c.re.test(phone)){ err.textContent = 'enter a valid '+c.name+' number: '+c.hint+'.'; $('phone').focus(); return; }
+  if(email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent = 'that email looks off. fix it or leave it blank.'; $('email').focus(); return; }
+  if(!net){ err.textContent = 'pick your network.'; $('net').focus(); return; }
+  if(!$('agree').checked){ err.textContent = 'tick the box to agree to the terms.'; return; }
+  const lead = {
+    campaign: CFG.CAMPAIGN,
+    country: country,
+    name: name,
+    phone: phone,
+    network: net,
+    email: email,
+    focus: hotPrize(),
+    cid: Math.random().toString(36).slice(2,10),
+    ts: new Date().toISOString()
+  };
+  sendLead(lead);
+  showConfirm();
+}
+
+/* ---------- confirmation + spin ---------- */
+function cooldownLeft(){
+  const last = +(localStorage.getItem('gw_spin') || 0);
+  return Math.max(0, last + CFG.SPIN_COOLDOWN_H*36e5 - Date.now());
+}
+function showConfirm(){
+  $('entryC').textContent = C[country] ? C[country].flag + ' ' + C[country].name : '';
+  setStep(3);
+  const left = cooldownLeft();
+  if(left > 0){
+    const saved = localStorage.getItem('gw_prize_lbl') || '';
+    $('res').textContent = saved ? 'you already won: '+saved : '';
+    $('spin').disabled = true;
+    $('cd').textContent = 'next spin in ' + Math.ceil(left/36e5) + 'h';
+    if(CFG.OFFER_URL){ $('offer').href = CFG.OFFER_URL; $('offer').hidden = false; }
+  }
+}
+
+function buildWheel(){
+  const s = 360 / SEGS.length;
+  $('wheel').style.background = 'conic-gradient(' + SEGS.map((g,i) => g.c+' '+(i*s)+'deg '+((i+1)*s)+'deg').join(',') + ')';
+  $('wheel').innerHTML = SEGS.map((g,i) =>
+    '<div class="lb'+(g.grand?' g':'')+'" style="transform:rotate('+((i+0.5)*s-90)+'deg)"><span>'+g.l+'</span></div>'
+  ).join('');
+}
+
+function spin(){
+  if(cooldownLeft() > 0) return;
+  // weighted pick: grand prize at GRAND_ODDS, rest share the remainder evenly
+  const grandIdx = SEGS.findIndex(g => g.grand);
+  let idx;
+  if(Math.random() < GRAND_ODDS) idx = grandIdx;
+  else { const small = SEGS.map((g,i)=>i).filter(i => i !== grandIdx); idx = small[Math.floor(Math.random()*small.length)]; }
+  const s = 360 / SEGS.length, phi = (idx + 0.5) * s;
+  $('spin').disabled = true;
+  $('wheel').style.transform = 'rotate(' + (360*6 + (360 - phi)) + 'deg)';
+  const lbl = SEGS[idx].grand ? 'GRAND PRIZE' : SEGS[idx].l;
+  try{ localStorage.setItem('gw_spin', String(Date.now())); localStorage.setItem('gw_prize_lbl', lbl); }catch(_){}
+  setTimeout(() => {
+    $('res').textContent = SEGS[idx].grand
+      ? 'GRAND PRIZE! claim details go to the number you entered.'
+      : 'you won '+lbl+'. claim details go to the number you entered.';
+    $('cd').textContent = 'next spin in '+CFG.SPIN_COOLDOWN_H+'h';
+    if(CFG.OFFER_URL){ $('offer').href = CFG.OFFER_URL; $('offer').hidden = false; }
+  }, 4600);
+}
+
+/* ---------- init ---------- */
+function init(){
+  $('brand').textContent = '🎁 ' + CFG.SPONSOR_NAME;
+  $('h1').textContent = HEAD[hotPrize()];
+  $('ctry').innerHTML = Object.keys(C).map(k => '<button type="button" class="ctry" data-c="'+k+'"><i>'+C[k].flag+'</i>'+C[k].name+'</button>').join('');
+  $('ctry').addEventListener('click', e => { const b = e.target.closest('[data-c]'); if(b) pick(b.dataset.c); });
+  $('chg').addEventListener('click', () => setStep(1));
+  $('cta').addEventListener('click', e => { e.preventDefault(); setStep(1); });
+  $('f').addEventListener('submit', onSubmit);
+  $('spin').addEventListener('click', spin);
+  $('tk').innerHTML = WINNERS.concat(WINNERS).map(w => '<span><b>'+w[0]+'</b> ('+w[1]+') won '+w[2]+'</span>').join('');
+  $('terms').href = CFG.TERMS_URL; $('privacy').href = CFG.PRIVACY_URL; $('privacy2').href = CFG.PRIVACY_URL; $('terms2').href = CFG.TERMS_URL;
+  $('sponsor').textContent = CFG.SPONSOR_NAME;
+  buildWheel();
+  flushQueue();
+  let saved = null; try{ saved = localStorage.getItem('gw_cc'); }catch(_){}
+  if(saved && C[saved]) pick(saved);
+  if(cooldownLeft() > 0 && localStorage.getItem('gw_prize_lbl')) $('res').textContent = '';
+}
+</script>
+
+<div class="w">
+<header><span class="brand" id="brand"></span><span class="ct" style="margin:0">weekly giveaway</span></header>
+
+<section class="hero">
+  <h1 id="h1">Win FREE Airtime or Data this week!</h1>
+  <div class="flags" aria-label="Nigeria, Ghana, Pakistan, Bangladesh, India">🇳🇬 🇬🇭 🇵🇰 🇧🇩 🇮🇳</div>
+  <p class="sub">one free entry per person. pick your country, drop your number, spin for a bonus. takes 30 seconds.</p>
+  <a href="#s1" class="btn" id="cta">Enter the giveaway</a>
+  <div class="ticker" aria-label="recent winners"><div class="tk" id="tk"></div></div>
+  <div class="ct">sample winners shown as placeholders</div>
+</section>
+
+<section id="s1" class="step on">
+  <h2>step 1: pick your country</h2>
+  <p class="sub">we set the prizes and the phone format for you.</p>
+  <div class="grid" id="ctry"></div>
+</section>
+
+<section id="s2" class="step">
+  <button type="button" class="back" id="chg">change country</button>
+  <h2>step 2: your details</h2>
+  <div class="sub" id="cname"></div>
+  <div class="prizes" id="prizes"></div>
+  <form id="f" novalidate autocomplete="on">
+    <label for="name">full name</label>
+    <input id="name" name="name" autocomplete="name" maxlength="60" required>
+    <label for="phone">phone number</label>
+    <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required>
+    <div class="hint" id="phint"></div>
+    <label for="net">network</label>
+    <select id="net" name="network" required></select>
+    <label for="email">email (optional)</label>
+    <input id="email" name="email" type="email" autocomplete="email" maxlength="80">
+    <input id="hp" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px" aria-hidden="true">
+    <label class="chk"><input type="checkbox" id="agree"> <span>i agree to the <a id="terms" href="#terms" style="color:var(--g)">terms</a> and <a id="privacy" href="#privacy" style="color:var(--g)">privacy policy</a>. no purchase necessary.</span></label>
+    <div class="err" id="err" role="alert"></div>
+    <button type="submit" class="btn o">Submit my entry</button>
+  </form>
+</section>
+
+<section id="s3" class="step">
+  <h2>you're in! 🎉</h2>
+  <p class="sub">entry received for <span id="entryC"></span>. spin the bonus wheel now, free, once every 24 hours.</p>
+  <div class="wrap">
+    <div class="ptr"></div>
+    <div class="wheel" id="wheel"></div>
+    <div class="hub"></div>
+  </div>
+  <button type="button" class="btn" id="spin">spin the wheel</button>
+  <p class="ok" id="res"></p>
+  <p class="ct" id="cd"></p>
+  <a id="offer" class="btn o" href="#" hidden>continue</a>
+</section>
+
+<footer class="ct" style="margin-top:28px">
+  no purchase necessary. winners picked at random. prizes shown are examples. offered by <span id="sponsor"></span>.
+  <br><a id="terms2" href="#terms" style="color:var(--m)">terms</a> · <a id="privacy2" href="#privacy" style="color:var(--m)">privacy</a>
+</footer>
+</div>
+
+<script>init();</script>
+</body>
+</html>
