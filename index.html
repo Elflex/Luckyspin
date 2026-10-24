@@ -51,7 +51,7 @@ input:focus,select:focus{outline:2px solid var(--g);border-color:transparent}
 .ptr{position:absolute;top:-8px;left:50%;margin-left:-12px;width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-top:28px solid var(--o);z-index:3}
 .wheel{width:100%;height:100%;border-radius:50%;border:6px solid var(--o);box-sizing:border-box;position:relative;transition:transform 4.5s cubic-bezier(.17,.67,.12,.99);overflow:hidden}
 .lb{position:absolute;left:50%;top:50%;width:50%;height:0;transform-origin:0 0}
-.lb span{position:absolute;left:14px;top:-9px;white-space:nowrap;font-size:12px;font-weight:800;color:#fff;text-shadow:0 1px 2px #000}
+.lb span{position:absolute;left:12px;top:-6px;white-space:nowrap;font-size:10.5px;font-weight:800;color:#fff;text-shadow:0 1px 2px #000;letter-spacing:-.2px}
 .lb.g span{color:#1a0d00;text-shadow:none}
 .hub{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--bg);border:4px solid var(--o);z-index:2}
 </style>
@@ -103,11 +103,21 @@ const WINNERS = [
 /* ==================== BONUS WHEEL ====================
    7 equal wedges: 6 small + 1 rare grand prize. Grand prize odds are set by GRAND_ODDS.
 */
-const SEGS = [
-  {l:'+50MB',c:'#15803d'},{l:'+100MB',c:'#0f766e'},{l:'Bonus airtime',c:'#ea580c'},
-  {l:'+200MB',c:'#166534'},{l:'Extra entry',c:'#c2410c'},{l:'+500MB',c:'#0e7490'},
-  {l:'GRAND PRIZE',c:'#facc15',grand:true}
-];
+// wheel segments use the same prize values as the contest form (C[k].pr),
+// so amounts always match. rebuilt whenever a country is picked.
+function segsFor(k){
+  const p = C[k].pr;
+  return [
+    {l:p.airtime,c:'#15803d'},
+    {l:'+500MB data',c:'#0f766e'},
+    {l:p.data.replace(' data bundle',' data'),c:'#166534'},
+    {l:'extra entry',c:'#ea580c'},
+    {l:p.giftcard.replace(' gift card',' card'),c:'#c2410c'},
+    {l:'+100MB data',c:'#0e7490'},
+    {l:'GRAND PRIZE',c:'#facc15',grand:true}
+  ];
+}
+let SEGS = segsFor('NG');
 const GRAND_ODDS = 0.01;
 
 const $ = id => document.getElementById(id);
@@ -131,6 +141,7 @@ function pick(k){
   try{ localStorage.setItem('gw_cc', k); }catch(_){}
   const c = C[k], hot = hotPrize();
   document.querySelectorAll('.ctry').forEach(b => b.classList.toggle('sel', b.dataset.c === k));
+  SEGS = segsFor(k); buildWheel();
   $('cname').textContent = c.flag + ' ' + c.name;
   $('h1').textContent = HEAD[hot];
   $('prizes').innerHTML = KEYS.map(p => {
